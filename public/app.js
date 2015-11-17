@@ -14,7 +14,12 @@ angular.module('userProfiles', ['ui.router'])
 		controller: 'profileCtrl',
 		resolve: {
 			userInfo: function( $http ) {
-				/* FIX ME */
+				return $http({
+					method: 'GET',
+					url: '/profile'
+				}).then(function(res){
+					return res.data;
+				});
 			}
 		}
 	});
